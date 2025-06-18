@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SplatGPT Beam-Trace Explorer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="weapon-info">
+             <img id="weapon-image" src="" alt="" style="display: none;" onerror="this.style.display='none'">
+            <div class="weapon-name" id="weapon-name"></div>
+            <div class="beam-width" id="beam-width"></div>
+        </div>
+    </div>
+
+    <div class="main-container" id="main-content">
+        <div class="empty-state">
+            <h2>Loading Trace Data...</h2>
+        </div>
+    </div>
+
+    <div id="global-tooltip"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
