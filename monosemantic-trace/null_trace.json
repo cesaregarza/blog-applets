@@ -1,0 +1,608 @@
+{
+  "weapon": { "name": "Splatana Stamper", "internal_name": "Saber_Normal_00" },
+  "beam_width": 5,
+  "steps": [
+    [
+      {
+        "token": "stealth_jump",
+        "value": 0.7042425870895386,
+        "top_feat_ids": [
+          959, 1257, 2021, 501, 1820, 1072, 110, 1888, 711, 1376
+        ],
+        "top_feat_contribs": [
+          0.87, 0.23, 0.24, 0.11, 0.06, -0.05, -0.04, -0.04, -0.01, -0.01
+        ]
+      },
+      {
+        "token": "quick_super_jump_3",
+        "value": 0.6743161082267761,
+        "top_feat_ids": [959, 2021, 501, 1257, 399, 1072, 1888, 1322, 110, 711],
+        "top_feat_contribs": [
+          0.25, 0.13, 0.09, 0.06, 0.05, -0.05, -0.05, -0.03, -0.02, -0.02
+        ]
+      },
+      {
+        "token": "swim_speed_up_6",
+        "value": 0.65684974193573,
+        "top_feat_ids": [2021, 37, 1257, 1426, 1820, 1888, 399, 845, 110, 959],
+        "top_feat_contribs": [
+          0.07, 0.06, 0.04, 0.03, 0.02, -0.09, -0.08, -0.07, -0.03, -0.03
+        ]
+      },
+      {
+        "token": "quick_respawn_3",
+        "value": 0.5056751370429993,
+        "top_feat_ids": [959, 399, 501, 845, 367, 1072, 1322, 1888, 236, 823],
+        "top_feat_contribs": [
+          0.18, 0.11, 0.11, 0.09, 0.09, -0.03, -0.03, -0.01, -0.01, -0.01
+        ]
+      },
+      {
+        "token": "ink_saver_main_3",
+        "value": 0.5210029482841492,
+        "top_feat_ids": [
+          959, 1257, 2021, 1132, 1820, 845, 399, 501, 1322, 1888
+        ],
+        "top_feat_contribs": [
+          0.11, 0.09, 0.09, 0.05, 0.03, -0.12, -0.04, -0.03, -0.03, -0.02
+        ]
+      }
+    ],
+    [
+      {
+        "token": "ink_saver_main_6",
+        "value": 0.6992373466491699,
+        "top_feat_ids": [381, 1257, 2039, 24, 996, 1512, 1881, 1051, 106, 399],
+        "top_feat_contribs": [
+          0.96, 0.35, 0.27, 0.18, 0.16, -0.32, -0.29, -0.23, -0.11, -0.08
+        ]
+      },
+      {
+        "token": "quick_respawn_12",
+        "value": 0.5185980796813965,
+        "top_feat_ids": [1051, 1861, 959, 1257, 106, 381, 871, 65, 1881, 1512],
+        "top_feat_contribs": [
+          1.3, 0.49, 0.44, 0.28, 0.14, -0.26, -0.23, -0.17, -0.12, -0.06
+        ]
+      },
+      {
+        "token": "comeback",
+        "value": 0.6503883600234985,
+        "top_feat_ids": [
+          1257, 959, 2039, 1051, 1512, 381, 518, 791, 1842, 1072
+        ],
+        "top_feat_contribs": [
+          0.42, 0.39, 0.32, 0.25, 0.17, -0.22, -0.04, -0.03, -0.02, -0.02
+        ]
+      }
+    ],
+    [
+      {
+        "token": "quick_respawn_3",
+        "value": 0.9999198913574219,
+        "top_feat_ids": [880, 1861, 572, 1129, 986, 692, 871, 1566, 65, 1881],
+        "top_feat_contribs": [
+          6.18, 1.41, 0.77, 0.41, 0.37, -0.29, -0.16, -0.09, -0.09, -0.08
+        ]
+      },
+      {
+        "token": "ink_saver_main_3",
+        "value": 0.9998248219490051,
+        "top_feat_ids": [692, 996, 2039, 1129, 24, 880, 540, 1861, 1881, 1512],
+        "top_feat_contribs": [
+          7.32, 0.51, 0.36, 0.35, 0.26, -0.48, -0.32, -0.24, -0.2, -0.17
+        ]
+      },
+      {
+        "token": "quick_respawn_15",
+        "value": 0.7873517274856567,
+        "top_feat_ids": [880, 1861, 1257, 1630, 1194, 692, 871, 65, 1566, 1881],
+        "top_feat_contribs": [
+          2.76, 1.09, 0.4, 0.37, 0.28, -0.88, -0.35, -0.3, -0.26, -0.15
+        ]
+      }
+    ],
+    [
+      {
+        "token": "quick_respawn_12",
+        "value": 0.9999713897705078,
+        "top_feat_ids": [889, 1861, 1630, 880, 1194, 692, 871, 1566, 65, 1881],
+        "top_feat_contribs": [
+          10.0, 1.15, 0.54, 0.42, 0.4, -0.71, -0.33, -0.26, -0.25, -0.13
+        ]
+      }
+    ],
+    [
+      {
+        "token": "sub_power_up_3",
+        "value": 0.10684168338775635,
+        "top_feat_ids": [
+          2039, 1257, 1861, 1024, 996, 889, 692, 540, 1512, 1881
+        ],
+        "top_feat_contribs": [
+          0.48, 0.46, 0.26, 0.21, 0.17, -0.8, -0.28, -0.18, -0.16, -0.15
+        ]
+      }
+    ],
+    [
+      {
+        "token": "sub_power_up_6",
+        "value": 0.4569753110408783,
+        "top_feat_ids": [
+          1216, 1024, 1257, 1350, 2039, 889, 692, 1842, 540, 871
+        ],
+        "top_feat_contribs": [
+          1.98, 1.32, 0.77, 0.56, 0.55, -1.04, -0.46, -0.24, -0.2, -0.19
+        ]
+      },
+      {
+        "token": "sub_power_up_3",
+        "value": 0.999484658241272,
+        "top_feat_ids": [
+          1024, 1350, 1216, 2039, 719, 889, 692, 1322, 1402, 1881
+        ],
+        "top_feat_contribs": [
+          5.06, 3.55, 1.11, 0.59, 0.39, -0.75, -0.33, -0.25, -0.18, -0.15
+        ]
+      }
+    ]
+  ],
+  "builds": [
+    {
+      "mains": { "head": null, "clothes": null, "shoes": "stealth_jump" },
+      "subs": {
+        "quick_super_jump": 1,
+        "swim_speed_up": 2,
+        "quick_respawn": 1,
+        "ink_saver_main": 1
+      }
+    },
+    {
+      "mains": { "head": "comeback", "clothes": null, "shoes": "stealth_jump" },
+      "subs": {
+        "quick_super_jump": 1,
+        "swim_speed_up": 2,
+        "quick_respawn": 4,
+        "ink_saver_main": 2
+      }
+    },
+    {
+      "mains": {
+        "head": "comeback",
+        "clothes": "quick_respawn",
+        "shoes": "stealth_jump"
+      },
+      "subs": {
+        "quick_super_jump": 1,
+        "swim_speed_up": 2,
+        "ink_saver_main": 2,
+        "quick_respawn": 2
+      }
+    },
+    {
+      "mains": {
+        "head": "comeback",
+        "clothes": "quick_respawn",
+        "shoes": "stealth_jump"
+      },
+      "subs": {
+        "quick_super_jump": 1,
+        "swim_speed_up": 2,
+        "ink_saver_main": 2,
+        "quick_respawn": 2
+      }
+    },
+    {
+      "mains": {
+        "head": "comeback",
+        "clothes": "quick_respawn",
+        "shoes": "stealth_jump"
+      },
+      "subs": {
+        "quick_super_jump": 1,
+        "swim_speed_up": 2,
+        "ink_saver_main": 2,
+        "quick_respawn": 2,
+        "sub_power_up": 1
+      }
+    },
+    {
+      "mains": {
+        "head": "comeback",
+        "clothes": "quick_respawn",
+        "shoes": "stealth_jump"
+      },
+      "subs": {
+        "quick_super_jump": 1,
+        "swim_speed_up": 2,
+        "ink_saver_main": 2,
+        "quick_respawn": 2,
+        "sub_power_up": 2
+      }
+    }
+  ],
+  "feature_labels": {
+    "feature_ids": [
+      1861, 1257, 0, 2, 3, 4, 5, 6, 7, 1, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
+      18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,
+      959, 2021, 501, 1820, 399, 1072, 110, 1888, 711, 37, 842, 1426, 1376, 845,
+      335, 1322, 1132, 381, 352, 692, 996, 2035, 698, 1609, 355, 416, 2039,
+      1860, 1217, 1169, 1773, 629, 1612, 1512, 1997, 1572, 1812, 1172, 944,
+      1881, 303, 986, 1793, 540, 1708, 871, 65, 1531, 1440, 1002, 1961, 452,
+      1266, 645, 528, 1654, 1088, 791, 1412, 282, 1583, 1216, 1350, 1024, 1269,
+      1009, 1944, 1455, 2046, 1489, 1673, 367, 236, 823, 1051, 106, 518, 1842,
+      880, 572, 1129, 1566, 1630, 1194, 889, 719, 1402
+    ],
+    "feature_names": [
+      "Stamper QR",
+      "Stamper Balanced",
+      "Sub Spam Jr",
+      "Machine QR",
+      "Sorella QSJ12",
+      "Special Saver 12",
+      "Nocto",
+      "Tenta Beakon",
+      "Stamper Comeback No QR",
+      "Angle Shooter",
+      "Hydra Splatling",
+      "Aggressive Douser",
+      "",
+      "Dualie Squelchers",
+      "ISM/SSU",
+      "IRU12",
+      "Haunt",
+      "High RSU",
+      "51+",
+      "",
+      "Speed Sploosh",
+      "NS ISS38",
+      "Bomb Spam Inkbrush",
+      "Beakon Wiper",
+      "Painbrush Meta",
+      "Short Range Shooter Balanced",
+      "Stamper ISM",
+      "",
+      "BPU3",
+      "96 Deco Base",
+      "",
+      "Bloblobber Meta",
+      "Big Swig Express/Bloblobber Deco Base",
+      "QR Comeback",
+      "Heavy Edit Nouveau RSU29",
+      "Aerospray MG High SSU Base",
+      "Ink Hungry Weapons",
+      "",
+      "Stamper SJ QSJ CB Core",
+      "Stamper Basic",
+      "Mint Decav QR",
+      "Mint Decav Comeback SJ",
+      "Aggro Base",
+      "Midrange ISS38",
+      "Drop Roller",
+      "IRU21",
+      "High Investment (All)",
+      "SSU6",
+      "SSU3",
+      "Stamper Ninja Squid",
+      "Midrange Comeback Thermal",
+      "Dapple Dualies Comeback BPU6",
+      "Limit ISM/IRU",
+      "Object Shredder",
+      "Dynamo Base",
+      "ISM3",
+      "ISM3",
+      "Shooter ISM3/6",
+      "Splatana CB SJ Base",
+      "Midrange Comeback QSJ SJ",
+      "Shooter IRU12/15 SCU15",
+      "Shooter IA Base",
+      "Ink Hungry Midrange",
+      "Midrange Slow Base",
+      "Stamper CB SJ ISM",
+      "Stamper SSU SJ",
+      "Aggro Dualies Base",
+      "SRU21/29",
+      "HyperAggro CB QR",
+      "NS SSU",
+      "SBlast91 Base",
+      "General SJ Reinforce",
+      "Midrange SJ Reinforce",
+      "SSU3 Reinforce",
+      "Midrange- Base",
+      "Midrange- SJ Reinforce",
+      "Stamper CB SJ",
+      "QSJ Utility",
+      "QSJ3 Reinforce",
+      "Aggro QR21",
+      "Recycled Mk 1 Base",
+      "Comeback Base",
+      "Aggro CB SJ",
+      "Low Fix SSU QSJ ISM",
+      "Utility",
+      "ISM Mid-to-High",
+      "Stamper SJ ISM",
+      "Mobility Base",
+      "Stamper v/n CB Base",
+      "QRSJCB Core",
+      "SJ Midrange- Base",
+      "IRU Max",
+      "Moderate QR",
+      "Needs RES",
+      "Midrange+ OS",
+      "High QR",
+      "SJ High Investment",
+      "ISM Mid",
+      "IRU Mid-to-High",
+      "Utility BPU",
+      "Minor BPU",
+      "Round-out BPU",
+      "Stamper/Decav CB Balanced",
+      "Burst Bomb BPU",
+      "Utility SPU",
+      "Aggro Minor SPU",
+      "Mid SRU",
+      "Mid SRU",
+      "No SRU",
+      "QR3",
+      "RSU 38",
+      "High QSJ",
+      "QR Core",
+      "CB SJ Mid-QR",
+      "Ambush Base",
+      "Max Investment",
+      "QR12 Reinforce",
+      "QR6 Reinforce",
+      "Aggro QR Core",
+      "CB no QR",
+      "Aggro QR15 Reinforce",
+      "High QR Core",
+      "QR15 Reinforce",
+      "BPU Reinforce",
+      "High Investment Util Core"
+    ],
+    "feature_categories": [
+      "none",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "mechanical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "strategic",
+      "tactical",
+      "tactical",
+      "none",
+      "tactical",
+      "tactical",
+      "mechanical",
+      "mechanical",
+      "tactical",
+      "mechanical",
+      "none",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "strategic",
+      "tactical",
+      "none",
+      "mechanical",
+      "tactical",
+      "none",
+      "tactical",
+      "tactical",
+      "strategic",
+      "tactical",
+      "tactical",
+      "strategic",
+      "none",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "strategic",
+      "tactical",
+      "mechanical",
+      "mechanical",
+      "mechanical",
+      "mechanical",
+      "mechanical",
+      "tactical",
+      "strategic",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "mechanical",
+      "strategic",
+      "tactical",
+      "strategic",
+      "strategic",
+      "tactical",
+      "strategic",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "strategic",
+      "tactical",
+      "tactical",
+      "mechanical",
+      "mechanical",
+      "mechanical",
+      "tactical",
+      "mechanical",
+      "tactical",
+      "strategic",
+      "mechanical",
+      "strategic",
+      "tactical",
+      "tactical",
+      "tactical",
+      "mechanical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "strategic",
+      "tactical",
+      "tactical",
+      "none",
+      "tactical",
+      "tactical",
+      "mechanical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "mechanical",
+      "mechanical",
+      "tactical",
+      "tactical",
+      "tactical",
+      "strategic",
+      "mechanical",
+      "mechanical",
+      "mechanical",
+      "strategic",
+      "tactical",
+      "tactical",
+      "tactical",
+      "mechanical",
+      "mechanical",
+      "strategic"
+    ],
+    "feature_notes": [
+      "",
+      "",
+      "",
+      "Seems to push for Opening Gambit",
+      "Seems to work primarily to reduce probabilities",
+      "",
+      "It suggests Run Speed Up. Why",
+      "Entirely Beakon, mostly Tenta Brella",
+      "Comeback and Stealth Jump, no QR",
+      "Unsure what this could be truthfully",
+      "Seems to activate on the main weapon almost exclusively to suggest a ton of RSU",
+      "small amounts of ink resist tend to make some of the bins go up significantly",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Adding any amount of QR kills this build",
+      "",
+      "",
+      "Seems to prefer not-57 sub power up",
+      "Looks like it uses a solid core",
+      "Some influence for short range shooters with minimal investment to get started",
+      "Prefers LDE but Comeback activates it strongly too",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Seems to correct for high amounts of SSU by giving negative weights to SSU above 29",
+      "Extremely high activation values, encourages a reasonable amount of ISM and a strong push to including a stealth jump kit",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Fill-in-the-hole",
+      "Penalizes BRU, Adds to QR and BPU",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  }
+}

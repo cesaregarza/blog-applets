@@ -83,9 +83,8 @@ body {
 .timeline {
     display: flex;
     gap: 0.5rem;
-    /* FIX: Allow timeline pills to wrap onto multiple lines */
     flex-wrap: wrap;
-    padding: 1rem 0; /* Remove horizontal overflow */
+    padding: 1rem 0;
 }
 
 .timeline-pill {
@@ -266,7 +265,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.5rem;
-    flex-wrap: wrap; /* Allow nav to wrap on smaller screens or with long titles */
+    flex-wrap: wrap;
 }
 
 .candidate-name {
@@ -274,7 +273,7 @@ body {
     font-weight: 600;
     color: var(--accent);
     text-transform: capitalize;
-    margin-bottom: 0.5rem; /* Add space below name */
+    margin-bottom: 0.5rem;
 }
 
 .candidate-controls {
@@ -432,7 +431,6 @@ body {
 /* Feature Chart */
 .feature-chart {
     margin-top: 1rem;
-    /* FIX: Set max-height and overflow to prevent "bouncing" on content change */
     max-height: 450px;
     overflow-y: auto;
     position: relative;
@@ -528,61 +526,39 @@ body {
     }
 }
 
-/* ============================================================
- * 📱  CRITICAL MOBILE OVERFLOW FIX  (≤ 768 px)
- * ============================================================*/
+/* Mobile Responsive */
 @media (max-width: 768px) {
-
-    /* ------------------------------------------------------------------
-     * 1 ▸ Outer column must never exceed the handset width
-     * ------------------------------------------------------------------*/
     .main-container{
-        max-width: none;     /* remove 1280 px desktop cap          */
-        width: 100vw;        /* exactly viewport width              */
+        max-width: none;
+        width: 100vw;
         margin: 0;
         box-sizing: border-box;
-        overflow-x: auto;    /* <-- allow scroll if something slips */
+        overflow-x: auto;
     }
 
-    /* ------------------------------------------------------------------
-     * 2 ▸ Grid: make the single column *shrinkable*
-     *    1fr  ⇒  minmax(0,1fr) so min‑width becomes 0
-     * ------------------------------------------------------------------*/
     .content-grid{
         grid-template-columns: minmax(0, 1fr);
     }
 
-    /* ------------------------------------------------------------------
-     * 3 ▸ Generic rule: every direct child may now shrink
-     * ------------------------------------------------------------------*/
     .content-grid > *{
-        min-width: 0 !important;  /* allow flex/grid shrinkage      */
+        min-width: 0 !important;
     }
 
-    /* ------------------------------------------------------------------
-     * 4 ▸ Stop extra‑wide header rows from forcing overflow
-     * ------------------------------------------------------------------*/
     .candidate-title-area{
-        flex-wrap: wrap;                 /* let nav wrap under title */
+        flex-wrap: wrap;
     }
     .candidate-name{
-        min-width: 0;                    /* let it shrink            */
+        min-width: 0;
         overflow: hidden;
-        text-overflow: ellipsis;         /* nice … when clipped      */
-        word-break: break-word;          /* break “sub_power_up_6”   */
+        text-overflow: ellipsis;
+        word-break: break-word;
     }
 
-    /* ------------------------------------------------------------------
-     * 5 ▸ Charts: SVG must follow the container width, not its own
-     * ------------------------------------------------------------------*/
     .feature-chart svg{
-        width: 100% !important;          /* responsive SVG           */
+        width: 100% !important;
         height: auto;
     }
 
-    /* ------------------------------------------------------------------
-     * 6 ▸ Long button rows should wrap instead of widening the page
-     * ------------------------------------------------------------------*/
     .tier-filters{
         flex-wrap: wrap;
         gap: .75rem;
@@ -624,29 +600,22 @@ body {
     background: var(--accent);
 }
 
-/* -----------------------------------------------------------------
- * MOBILE FIX  – applies only up to 768 px
- * -----------------------------------------------------------------*/
+/* Mobile Top Bar Fix */
 @media (max-width: 768px) {
-
-    /* 1 ─ Cancel the desktop centring rule and width cap          */
     .top-bar{
-        margin: 0 !important;          /* kill the auto‑margins   */
-        max-width: none !important;    /* remove the 1280 px cap  */
-        width: 100vw !important;       /* fill the whole viewport */
-        padding: 1rem 1rem !important; /* restore right padding   */
+        margin: 0 !important;
+        max-width: none !important;
+        width: 100vw !important;
+        padding: 1rem 1rem !important;
         box-sizing: border-box;
     }
 
-    /* 2 ─ Stop the flex container from collapsing by
-           letting its only child expand across the row            */
     .top-bar > .weapon-info{
-        flex: 1 0 100% !important;     /* occupy the full line    */
+        flex: 1 0 100% !important;
         justify-content: center;
-        min-width: 0;                  /* avoid overflow on long names */
+        min-width: 0;
     }
 
-    /* 3 ─ Centre the two text lines when they wrap                */
     .weapon-name,
     .beam-width{
         width: 100%;
