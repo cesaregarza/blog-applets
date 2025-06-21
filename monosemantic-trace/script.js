@@ -58,6 +58,10 @@ function processAndLoadData(data) {
             builds: data.builds 
         };
 
+        // Prepend an initial state to the data for clarity
+        traceData.trace.unshift({ candidates: [] });
+        traceData.builds.unshift({ mains: {}, subs: {} });
+
         currentStep = 0;
         currentCandidateIndex = 0;
         
@@ -94,7 +98,9 @@ function initializeUI() {
             </div>
             <div class="content-grid">
                 <div class="build-summary">
-                    <h2>Build Summary</h2>
+                    <h2 id="build-summary-header">
+                        <span id="build-summary-title-text">Build Summary</span>
+                    </h2>
                     <div id="graphical-build"></div> 
                     <div class="abilities-table" id="abilities-table"></div>
                     <div class="slot-counters" id="slot-counters"></div>
@@ -127,6 +133,33 @@ function initializeUI() {
             </div>
         `;
         renderTimeline();
+
+        // --- FIX START: Make Build Summary collapsible ---
+        const buildSummaryContainer = container.querySelector('.build-summary');
+        const buildSummaryHeader = buildSummaryContainer.querySelector('h2');
+        
+        // Add a visual indicator for collapsing
+        buildSummaryHeader.innerHTML += '<span class="collapse-icon">[–]</span>';
+        const collapseIcon = buildSummaryHeader.querySelector('.collapse-icon');
+
+        // Add click event listener to the header
+        buildSummaryHeader.addEventListener('click', () => {
+            buildSummaryContainer.classList.toggle('collapsed');
+            // Update the icon based on the state
+            if (buildSummaryContainer.classList.contains('collapsed')) {
+                collapseIcon.textContent = '[+]';
+            } else {
+                collapseIcon.textContent = '[–]';
+            }
+        });
+
+        // Collapse the section by default if on a mobile device
+        if (window.innerWidth <= 768) {
+            buildSummaryContainer.classList.add('collapsed');
+            collapseIcon.textContent = '[+]';
+        }
+        // --- FIX END ---
+
     } catch (error) {
         console.error('Error initializing UI:', error);
         document.getElementById('main-content').innerHTML = `<div class="empty-state"><h2>Error initializing UI</h2><p>${error.message}</p></div>`;
@@ -140,7 +173,8 @@ function renderTimeline() {
     traceData.trace.forEach((step, index) => {
         const pill = document.createElement('div');
         pill.className = 'timeline-pill' + (index === currentStep ? ' active' : '');
-        pill.textContent = index === 0 ? 'Start' : `Step ${index}`;
+        // Clarify timeline: Add "Initial" state and 1-index steps
+        pill.textContent = index === 0 ? 'Initial' : `Step ${index}`;
         
         pill.onclick = () => selectStep(index);
         pill.addEventListener('mouseenter', (event) => showTooltip(event, index));
@@ -173,6 +207,14 @@ function updateDisplay() {
 function updateBuildSummary() {
     const build = traceData.builds[currentStep];
     if (!build) return;
+
+    const buildTitle = document.getElementById('build-summary-title-text');
+    if (currentStep === 0) {
+        buildTitle.textContent = 'Initial Build';
+    } else {
+        buildTitle.textContent = `Build after Step ${currentStep}`;
+    }
+
 
     const abilityUrl = (name) => `https://splat-top.nyc3.cdn.digitaloceanspaces.com/assets/abilities/${name || 'none'}.png`;
 
@@ -265,15 +307,15 @@ function updateCandidateInspector() {
     const candidateToInspect = step.candidates[currentCandidateIndex];
     
     header.innerHTML = `
-        <div class="candidate-title-area">
-            <div class="candidate-name">${candidateToInspect.token.replace(/_/g, ' ')}</div>
+        <div class="candidate-name">${candidateToInspect.token.replace(/_/g, ' ')}</div>
+        <div class="candidate-controls">
             <div class="candidate-nav">
                 <button id="prev-candidate-btn" ${currentCandidateIndex === 0 ? 'disabled' : ''}>&larr;</button>
                 <span id="candidate-counter">${currentCandidateIndex + 1} of ${totalCandidates}</span>
                 <button id="next-candidate-btn" ${currentCandidateIndex === totalCandidates - 1 ? 'disabled' : ''}>&rarr;</button>
             </div>
-        </div>
-        <div class="candidate-prob">Probability: ${(candidateToInspect.prev_prob * 100).toFixed(1)}%</div>`;
+            <div class="candidate-confidence">Confidence: ${(candidateToInspect.prev_prob * 100).toFixed(1)}%</div>
+        </div>`;
     
     document.getElementById('prev-candidate-btn').onclick = prevCandidate;
     document.getElementById('next-candidate-btn').onclick = nextCandidate;
@@ -288,9 +330,20 @@ function renderFeatureChart(features) {
     if (width <= 0) return; 
     
     const barHeight = 30;
-    const margin = { top: 10, right: 60, bottom: 10, left: 200 };
+    const isMobile = width <= 768;
+    const margin = { 
+        top: 10, 
+        right: 60,
+        bottom: 10, 
+        left: isMobile ? 120 : 200 
+    };
     const filteredFeatures = features.filter(f => tierFilters[f.tier]);
-    if (filteredFeatures.length === 0) return;
+    
+    // Show empty state if no features are available
+    if (filteredFeatures.length === 0) {
+        container.innerHTML = '<div class="chart-empty-state">No features available for the selected filters</div>';
+        return;
+    }
 
     const displayFeatures = filteredFeatures.map(f => {
         let displayValue, displayLabel;
@@ -307,7 +360,13 @@ function renderFeatureChart(features) {
 
     const height = displayFeatures.length * barHeight + margin.top + margin.bottom;
     const chartWidth = width - margin.left - margin.right;
-    const svg = d3.select(container).append('svg').attr('width', width).attr('height', height);
+
+    // FIX: Use a scalable viewBox instead of fixed width/height for a responsive SVG
+    const svg = d3.select(container).append('svg')
+              .attr('viewBox', `0 0 ${width} ${height}`) // scalable canvas
+              .attr('preserveAspectRatio', 'xMinYMid')   // optional
+              .classed('fluid-chart', true);             // just for CSS hook
+
     const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
     const maxValue = d3.max(displayFeatures, d => Math.abs(d.displayValue)) || 1;
     const xScale = d3.scaleLinear().domain([-maxValue, maxValue]).range([0, chartWidth]);
@@ -315,18 +374,64 @@ function renderFeatureChart(features) {
     const bars = g.selectAll('.feature-bar').data(displayFeatures).enter().append('g')
         .attr('class', 'feature-bar').attr('transform', (d, i) => `translate(0,${i * barHeight})`);
 
+    // --- FIX START: Truncate long labels and add tooltips ---
+    const maxLabelLength = isMobile ? 20 : 30;
+
+    bars.on('mouseenter', (event, d) => {
+        if (d.label.length > maxLabelLength) {
+            const tooltip = document.getElementById('global-tooltip');
+            tooltip.innerHTML = d.label;
+            tooltip.style.whiteSpace = 'normal';
+            tooltip.style.maxWidth = '300px';
+            tooltip.style.textAlign = 'left';
+
+            const barRect = event.currentTarget.getBoundingClientRect();
+            tooltip.style.left = `${barRect.left + barRect.width / 2}px`;
+            tooltip.style.top = `${barRect.top + window.scrollY - 10}px`; 
+            tooltip.style.transform = 'translate(-50%, -100%)';
+            tooltip.style.opacity = '1';
+        }
+    })
+    .on('mouseleave', hideTooltip);
+    // --- FIX END ---
+    
     bars.append('rect').attr('x', 0).attr('y', 0).attr('width', chartWidth).attr('height', barHeight - 4).attr('fill', 'var(--bg-tertiary)').attr('opacity', 0.3);
+    
     bars.append('rect').attr('x', d => d.displayValue >= 0 ? xScale(0) : xScale(d.displayValue)).attr('y', 2)
         .attr('width', d => Math.abs(xScale(d.displayValue) - xScale(0))).attr('height', barHeight - 8)
         .attr('fill', d => `var(--color-${d.tier})`).attr('opacity', 0.8);
     
+    // --- FIX START: Truncate long labels in the text element ---
     bars.append('text').attr('x', -10).attr('y', barHeight / 2).attr('text-anchor', 'end')
-        .attr('dominant-baseline', 'middle').attr('class', 'feature-label').text(d => d.label);
+        .attr('dominant-baseline', 'middle').attr('class', 'feature-label')
+        .text(d => {
+            if (d.label.length > maxLabelLength) {
+                return d.label.substring(0, maxLabelLength - 1) + '…';
+            }
+            return d.label;
+        });
+    // --- FIX END ---
     
     bars.append('text')
-        .attr('x', d => d.displayValue >= 0 ? xScale(d.displayValue) - 5 : xScale(d.displayValue) + 5)
+        .attr('x', d => {
+            if (d.displayValue >= 0) {
+                // For positive values, place label just outside the bar to the right.
+                return xScale(d.displayValue) + 5;
+            } else {
+                // For negative values, place label *inside* the bar, from its left edge.
+                // This prevents overlap with the y-axis feature labels.
+                return xScale(d.displayValue) + 5;
+            }
+        })
         .attr('y', barHeight / 2)
-        .attr('text-anchor', d => d.displayValue >= 0 ? 'end' : 'start')
+        .attr('text-anchor', d => {
+            if (d.displayValue >= 0) {
+                return 'start';
+            } else {
+                // Align from the start of the text so it sits inside the bar.
+                return 'start';
+            }
+        })
         .attr('dominant-baseline', 'middle')
         .attr('class', 'feature-value')
         .style('fill', 'var(--text-primary)') 
