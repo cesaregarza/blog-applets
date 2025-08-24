@@ -1,0 +1,10 @@
+/* Apply the Inter font family */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Style for disabled pagination buttons */
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
