@@ -2,6 +2,7 @@ const searchInput = document.getElementById("searchInput");
 const tableBody = document.getElementById("tableBody");
 const summary = document.getElementById("summary");
 const loadingIndicator = document.getElementById("loadingIndicator");
+const DATA_VERSION = "20260414-1";
 
 let allRows = [];
 
@@ -163,7 +164,10 @@ function applyFilter() {
 
 async function loadData() {
     try {
-        const response = await fetch("takoroka_peak_3100_sendou_accounts.csv");
+        const response = await fetch(
+            `takoroka_peak_3100_sendou_accounts.csv?v=${DATA_VERSION}`,
+            { cache: "no-store" }
+        );
         if (!response.ok) {
             throw new Error("failed to load CSV");
         }
