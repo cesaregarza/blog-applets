@@ -1,0 +1,11 @@
+body {
+    font-family: "Inter", sans-serif;
+}
+
+a {
+    color: #0f766e;
+}
+
+a:hover {
+    color: #115e59;
+}
